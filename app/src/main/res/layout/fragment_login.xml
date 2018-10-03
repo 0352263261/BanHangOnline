@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/txt_login_nick"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email/Số điện thoại/Tên đăng nhập"
+        android:textSize="@dimen/textsize20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txt_login_pass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txt_login_nick"
+        android:hint="Mật khẩu"
+        android:textSize="@dimen/textsize20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txt_login_pass"
+        android:layout_marginTop="24dp"
+        android:text="Đăng Nhập"
+        android:textSize="@dimen/textsize20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_forgetPass"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginRight="@dimen/margin16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:gravity="center_vertical|right"
+        android:text="Quên mật khẩu?"
+        android:textSize="@dimen/textsize15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:gravity="center_vertical|center"
+        android:text="Đăng nhập khác" />
+
+    <Button
+        android:id="@+id/btn_login_by_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="64dp"
+        android:text="Đăng nhập bằng SMS"
+        android:textSize="@dimen/textsize15sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_login_by_phone"
+        android:layout_marginTop="-50dp">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_by_fb"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+</RelativeLayout>

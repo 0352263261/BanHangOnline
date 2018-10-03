@@ -2,14 +2,12 @@ package ptit.hoang.saleonline;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,12 +17,13 @@ import android.widget.RelativeLayout;
 
 import java.lang.reflect.Field;
 
-import ptit.hoang.fragment.AccountFragment;
-import ptit.hoang.fragment.CartFragment;
-import ptit.hoang.fragment.HomeFragment;
-import ptit.hoang.fragment.MessageFragment;
+import ptit.hoang.fragment.index.AccountFragment;
+import ptit.hoang.fragment.index.CartFragment;
+import ptit.hoang.fragment.index.HomeFragment;
+import ptit.hoang.fragment.index.MessageFragment;
 
 public class MainActivity extends AppCompatActivity {
+    private final String TAG = MainActivity.class.getSimpleName();
     private static final String SELECTED_ITEM = "arg_selected_item";
     private static final String FIELD = "mShiftingMode";
     private Toolbar my_toolbar;
@@ -56,11 +55,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             selectedItem = mBottomNav.getMenu().getItem(0);
         }
-        mBottomNav.setSelectedItemId(R.id.action_home);
         selectedFragment(selectedItem);
-}
+    }
 
-    private void initViewID(){
+    private void initViewID() {
         mBottomNav = findViewById(R.id.navigation);
         searchView = findViewById(R.id.search_home);
     }
@@ -95,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         MenuItem homeItem = mBottomNav.getMenu().getItem(0);
         if (mSelectedItem != homeItem.getItemId()) {
-            // select home item
             selectedFragment(homeItem);
         } else {
             super.onBackPressed();
@@ -112,11 +109,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_massage:
                 frag = new MessageFragment();
                 break;
-            case R.id.action_cart:
+            case R.id.action_notification:
                 frag = new CartFragment();
                 break;
             case R.id.action_account:
                 frag = new AccountFragment();
+                break;
+            default:
                 break;
         }
         // update selected item
@@ -126,7 +125,9 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < mBottomNav.getMenu().size(); i++) {
             MenuItem menuItem = mBottomNav.getMenu().getItem(i);
             menuItem.setChecked(menuItem.getItemId() == item.getItemId());
+            Log.d(TAG, "Menu: " + menuItem.getItemId() + "-" + "item: " + item.getItemId());
         }
+        mBottomNav.getMenu().findItem(R.id.action_home).setChecked(true);
         //updateToolbarText(item.getTitle());
         if (frag != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -141,11 +142,6 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setTitle(text);
         }
     }
-
-    private int getColorFromRes(@ColorRes int resId) {
-        return ContextCompat.getColor(this, resId);
-    }
-
-    //TODO 1: Set default item Botom.
+    //TODO 1: Login & Register.
     //TODO 2: Custom search bar.
 }

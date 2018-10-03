@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SaleOnLine</string>
+    <string name="fb_login_protocol_scheme">fb2046729028891880</string>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
 </resources>

@@ -1,4 +1,4 @@
-package ptit.hoang.fragment;
+package ptit.hoang.fragment.index;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

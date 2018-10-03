@@ -5,15 +5,201 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text"
+    <RelativeLayout
+        android:id="@+id/background_banner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="Home"
-        android:textColor="@android:color/background_dark"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_height="150dp"
+        android:background="#E1BEE7">
+
+        <include
+            layout="@layout/app_bar_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/background_banner">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_category"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/margin8dp"
+                android:gravity="center_vertical"
+                android:text="Danh mục"
+                android:textColor="#F44336"
+                android:textSize="@dimen/textsize15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:id="@+id/ln_category"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@+id/txt_category"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin8dp">
+
+                <LinearLayout
+                    android:id="@+id/thoi_trang_nam"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder_item_while"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="7"
+                        android:clickable="false"
+                        android:src="@drawable/thoi_trang_nam1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:clickable="false"
+                        android:gravity="center_vertical|center"
+                        android:text="Thời trang nam"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/textsize10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/thoi_trang_nu"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder_item_while"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="7"
+                        android:clickable="false"
+                        android:src="@drawable/thoi_trang_nam1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:clickable="false"
+                        android:gravity="center_vertical|center"
+                        android:text="Thời trang nữ"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/textsize10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tt_tre_em"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder_item_while"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="7"
+                        android:clickable="false"
+                        android:src="@drawable/thoi_trang_nam1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:clickable="false"
+                        android:gravity="center_vertical|center"
+                        android:text="Thời trang trẻ em"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/textsize10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tt_me_be"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder_item_while"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="7"
+                        android:clickable="false"
+                        android:src="@drawable/thoi_trang_nam1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:clickable="false"
+                        android:gravity="center_vertical|center"
+                        android:text="Thời trang mẹ và bé"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/textsize10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_timkiemphobien"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ln_category"
+                android:layout_marginLeft="@dimen/margin8dp"
+                android:gravity="center_vertical"
+                android:text="Tìm kiếm phổ biến"
+                android:textColor="#F44336"
+                android:textSize="@dimen/textsize15sp"
+                android:textStyle="bold" />
+
+            <GridView
+                android:id="@+id/grid_timkiemphobien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_timkiemphobien"
+                android:columnWidth="8dp"
+                android:numColumns="2"></GridView>
+
+            <TextView
+                android:id="@+id/txt_goiy"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/grid_timkiemphobien"
+                android:layout_marginLeft="@dimen/margin8dp"
+                android:gravity="center_vertical"
+                android:text="Gợi ý hôm nay"
+                android:textColor="#F44336"
+                android:textSize="@dimen/textsize15sp"
+                android:textStyle="bold" />
+
+            <!--Lazy loading List-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcl_goiy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_goiy"></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
